@@ -98,13 +98,7 @@ void draw () {
   int x_3 = x_2+ancho;
   int x_4 = x_3+ancho;
   
-  //pg_oro = initSurfaceX();
-  //pg_fiat = initSurfaceX();
-  //pg_cripto = initSurfaceX();
-  
-  //  pg_oro.background(0);
-  //pg_oro.rect(x_1, 0, width/3, height); //(width >> 1, height >> 1, width*.5, height*.5);
-  //img.mask( pg_oro.get() );
+ 
   
     img.resize(ancho, height);
     img_fiat.resize(ancho, height);
@@ -151,19 +145,6 @@ void draw () {
   fill (255);
   text (line_cripto, x_cripto_text, h_cripto-20); //50,0 , w-100. w-20
   
-  
-  
-  /*
-  fill (0);
-  text (line_fiat, 52+x_2, height-18);
-  fill (255);
-  text (line_fiat, 50+x_2, height-20);
-  
-  fill (0);
-  text (line_cripto, 104+x_3, height-18);
-  fill (255);
-  text (line_cripto, 100+x_3, height-20);
-  */
 }
 // ...but obstacles are set only by yourself - you attach yourself to them!
 void generate () {

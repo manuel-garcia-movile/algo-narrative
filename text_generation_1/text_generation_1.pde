@@ -19,6 +19,9 @@
 
 import rita.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 RiMarkov rm;
 RiMarkov rm_fiat;
 RiMarkov rm_cripto;
@@ -49,10 +52,42 @@ PGraphics pg_cripto;
 
 PFont font;
 
+
+/// ke comience el du du du duelo!
+
+class Attack{
+
+  public String linea;
+  public int ethos_attack;
+  public int pathos_attack;
+  public int logos_attack;
+  
+}
+
+class Memero{
+
+  public String nombre;
+  public int ethos_level=10;
+  public int pathos_level=10;
+  public int logos_level=10;
+  Boolean still_Alive=true;
+    
+}
+
+Map<String, Attack> ataques_turno;
+Memero memero_oro = new Memero();
+Memero memero_fiat = new Memero();
+Memero memero_cripto = new Memero();
+
 // the more you try to be free, the more restraints you confront
 void setup () {
   
  
+
+memero_oro.nombre="Memero del Oro";
+memero_fiat.nombre="Memero del Fiat";
+memero_cripto.nombre="Memero del Cripto";
+  
   
   
   
@@ -147,20 +182,49 @@ void draw () {
   
 }
 // ...but obstacles are set only by yourself - you attach yourself to them!
-void generate () {
+Map <String,Attack> generate () {
+  
+  Map<String,Attack> ataques = new HashMap<String,Attack>();
+  
+  Attack ataque_oro = new Attack();
   // use RiTa's Markov to produce a new line
   line = join (rm.generate (1), "\n");
   line = join (line.split("(?<=\\G.{60})"),"\n");
   line =  line.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
   //line = join (line.split("(?<=\\G.{60})"),"\n");
   
+  ataque_oro.linea = line;
+  ataque_oro.ethos_attack = (int)random (0, 2);
+  ataque_oro.pathos_attack = (int)random (0, 2);
+  ataque_oro.logos_attack = (int)random (0, 2);
+  
+  ataques.put("ataque_oro",ataque_oro);
+  
+  Attack ataque_fiat = new Attack();
+  
   line_fiat = join (rm_fiat.generate (1), "\n");
   line_fiat = join (line_fiat.split("(?<=\\G.{60})"),"\n");
   line_fiat =  line_fiat.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
   
+  ataque_fiat.linea = line_fiat;
+  ataque_fiat.ethos_attack = (int)random (0, 2);
+  ataque_fiat.pathos_attack = (int)random (0, 2);
+  ataque_fiat.logos_attack = (int)random (0, 2);
+  
+  ataques.put("ataque_fiat",ataque_fiat);
+  
+  Attack ataque_cripto = new Attack();
+  
   line_cripto = join (rm_cripto.generate (1), "\n");
   line_cripto = join (line_cripto.split("(?<=\\G.{60})"),"\n");
   line_cripto =  line_cripto.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
+  
+  ataque_cripto.linea = line_cripto;
+  ataque_cripto.ethos_attack = (int)random (0, 2);
+  ataque_cripto.pathos_attack = (int)random (0, 2);
+  ataque_cripto.logos_attack = (int)random (0, 2);
+  
+  ataques.put("ataque_cripto",ataque_cripto);
   
   // pick any random image
   img = images [(int)random (0, images.length)];
@@ -169,12 +233,82 @@ void generate () {
   
 
   
-  
+  return ataques;
 }
 void keyTyped () {
-  generate ();
+  turno();
+  //ataques_turno = generate ();
 }
 void mouseClicked () {
-  generate ();
+  turno();
+  //ataques_turno = generate ();
 }
 // so, in order to be free, just BECOME free! Also 1517
+
+
+void turno(){
+
+    ataques_turno = generate ();
+    
+    Attack ataque_oro = ataques_turno.get("ataque_oro");
+    Attack ataque_fiat = ataques_turno.get("ataque_fiat");
+    Attack ataque_cripto = ataques_turno.get("ataque_cripto");
+    
+    // oro recibe ataque
+    memero_oro.ethos_level = memero_oro.ethos_level - ataque_fiat.ethos_attack - ataque_cripto.ethos_attack;
+    memero_oro.pathos_level = memero_oro.pathos_level - ataque_fiat.pathos_attack - ataque_cripto.pathos_attack;
+    memero_oro.logos_level = memero_oro.logos_level - ataque_fiat.logos_attack - ataque_cripto.logos_attack;
+    
+    println("Memero Oro ante estos momoazos: Ethos="+memero_oro.ethos_level+" Pathos="+memero_oro.pathos_level+" Logos="+memero_oro.logos_level);
+    regla_ethos(memero_oro);
+    regla_pathos(memero_oro);
+    regla_logos(memero_oro);
+    
+    
+    // fiat recibe ataque
+    memero_fiat.ethos_level = memero_fiat.ethos_level - ataque_oro.ethos_attack - ataque_cripto.ethos_attack;
+    memero_fiat.pathos_level = memero_fiat.pathos_level - ataque_oro.pathos_attack - ataque_cripto.pathos_attack;
+    memero_fiat.logos_level = memero_fiat.logos_level - ataque_oro.logos_attack - ataque_cripto.logos_attack;
+    
+    println("Memero Fiat ante estos momoazos: Ethos="+memero_fiat.ethos_level+" Pathos="+memero_fiat.pathos_level+" Logos="+memero_fiat.logos_level);
+    regla_ethos(memero_fiat);
+    regla_pathos(memero_fiat);
+    regla_logos(memero_fiat);
+    
+    
+    // cripto recibe ataque
+    memero_cripto.ethos_level = memero_cripto.ethos_level - ataque_oro.ethos_attack - ataque_fiat.ethos_attack;
+    memero_cripto.pathos_level = memero_cripto.pathos_level - ataque_oro.pathos_attack - ataque_fiat.pathos_attack;
+    memero_cripto.logos_level = memero_cripto.logos_level - ataque_oro.logos_attack - ataque_fiat.logos_attack;
+    
+    println("Memero Cripto ante estos momoazos: Ethos="+memero_fiat.ethos_level+" Pathos="+memero_fiat.pathos_level+" Logos="+memero_fiat.logos_level);
+    regla_ethos(memero_fiat);
+    regla_pathos(memero_fiat);
+    regla_logos(memero_fiat);
+    
+
+
+}
+
+
+void regla_ethos(Memero memero){
+  if(memero.ethos_level<=0){
+    println(memero.nombre+" se siente ingnorante y promete investigar sobre el tema ( U_U) "); 
+    memero.still_Alive=false;
+  }
+} 
+
+
+void regla_pathos(Memero memero){
+  if(memero.pathos_level<=0){
+    println(memero.nombre+" ya se enojo y esta agrediendo ( >_< ) "); 
+    memero.still_Alive=false;
+  }
+} 
+
+void regla_logos(Memero memero){
+  if(memero.logos_level<=0){
+    println(memero.nombre+" se siente tonto. Pide disculpas por sus tonterias ( @_@) "); 
+    memero.still_Alive=false;
+  }
+}

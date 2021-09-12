@@ -118,9 +118,9 @@ void setup () {
   images_fiat = new PImage [8];
   images_cripto = new PImage [8];
   for (int i=0; i<images.length; i++) {
-    images [i] = loadImage ( "oro_"+(i+1)+".jpg");
-    images_fiat [i] = loadImage ( "fiat_"+(i+1)+".jpg");
-    images_cripto [i] = loadImage ( "cripto_"+(i+1)+".jpg");    
+    images [i] = loadImage ( "oro_"+(i+1)+".png");
+    images_fiat [i] = loadImage ( "fiat_"+(i+1)+".png");
+    images_cripto [i] = loadImage ( "cripto_"+(i+1)+".png");    
   }
   
   img_final_ethos = loadImage ( "ethos_final.jpg");
@@ -170,13 +170,6 @@ void draw () {
   regla_victoria();
   
   //oro canvas
-  /*
-  if(!memero_oro.still_Alive)
-  {
-    img = memero_oro.badge_meme;
-    line = memero_oro.mood;
-  }
-  */
   
   image (img, x_1, 0, ancho, height);
   
@@ -192,13 +185,6 @@ void draw () {
   
   
   //fiat canvas
-  /*
-  if(!memero_fiat.still_Alive)
-  {
-    img_fiat = memero_fiat.badge_meme;
-    line_fiat = memero_fiat.mood;
-  }
-  */
   
   image (img_fiat, x_2, 0, ancho, height);
   
@@ -214,14 +200,6 @@ void draw () {
   
   
   // cripto canvas
-  /*
-  if(!memero_cripto.still_Alive)
-  {
-    img_cripto = memero_cripto.badge_meme;
-    line_cripto = memero_cripto.mood;
-  }
-  
-  */
   
   image (img_cripto, x_3, 0, ancho, height);
   
@@ -369,7 +347,7 @@ void turno(){
     memero_oro.pathos_level = memero_oro.pathos_level - ataque_fiat.pathos_attack - ataque_cripto.pathos_attack;
     memero_oro.logos_level = memero_oro.logos_level - ataque_fiat.logos_attack - ataque_cripto.logos_attack;
     
-    println("Memero Oro ante estos momoazos: Ethos="+memero_oro.ethos_level+" Pathos="+memero_oro.pathos_level+" Logos="+memero_oro.logos_level);
+    println("Memero Oro ante estos momazos: Ethos="+memero_oro.ethos_level+" Pathos="+memero_oro.pathos_level+" Logos="+memero_oro.logos_level);
     regla_ethos(memero_oro);
     regla_pathos(memero_oro);
     regla_logos(memero_oro);
@@ -380,7 +358,7 @@ void turno(){
     memero_fiat.pathos_level = memero_fiat.pathos_level - ataque_oro.pathos_attack - ataque_cripto.pathos_attack;
     memero_fiat.logos_level = memero_fiat.logos_level - ataque_oro.logos_attack - ataque_cripto.logos_attack;
     
-    println("Memero Fiat ante estos momoazos: Ethos="+memero_fiat.ethos_level+" Pathos="+memero_fiat.pathos_level+" Logos="+memero_fiat.logos_level);
+    println("Memero Fiat ante estos momazos: Ethos="+memero_fiat.ethos_level+" Pathos="+memero_fiat.pathos_level+" Logos="+memero_fiat.logos_level);
     regla_ethos(memero_fiat);
     regla_pathos(memero_fiat);
     regla_logos(memero_fiat);
@@ -391,7 +369,7 @@ void turno(){
     memero_cripto.pathos_level = memero_cripto.pathos_level - ataque_oro.pathos_attack - ataque_fiat.pathos_attack;
     memero_cripto.logos_level = memero_cripto.logos_level - ataque_oro.logos_attack - ataque_fiat.logos_attack;
     
-    println("Memero Cripto ante estos momoazos: Ethos="+memero_cripto.ethos_level+" Pathos="+memero_cripto.pathos_level+" Logos="+memero_cripto.logos_level);
+    println("Memero Cripto ante estos momazos: Ethos="+memero_cripto.ethos_level+" Pathos="+memero_cripto.pathos_level+" Logos="+memero_cripto.logos_level);
     regla_ethos(memero_cripto);
     regla_pathos(memero_cripto);
     regla_logos(memero_cripto);

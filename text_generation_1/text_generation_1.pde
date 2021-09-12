@@ -55,6 +55,11 @@ PFont font;
 
 /// ke comience el du du du duelo!
 
+PImage img_final_ethos;
+PImage img_final_pathos;
+PImage img_final_logos;
+PImage img_win_final;
+
 class Attack{
 
   public String linea;
@@ -71,6 +76,12 @@ class Memero{
   public int pathos_level=10;
   public int logos_level=10;
   Boolean still_Alive=true;
+  
+  public String mood="";
+  public String mood_ethos="";
+  public String mood_pathos="";
+  public String mood_logos="";
+  public PImage badge_meme;
     
 }
 
@@ -82,11 +93,11 @@ Memero memero_cripto = new Memero();
 // the more you try to be free, the more restraints you confront
 void setup () {
   
- 
+  surface.setTitle("Guerra de memes economicos"); 
 
-memero_oro.nombre="Memero del Oro";
-memero_fiat.nombre="Memero del Fiat";
-memero_cripto.nombre="Memero del Cripto";
+  memero_oro.nombre="Memero del Oro";
+  memero_fiat.nombre="Memero del Fiat";
+  memero_cripto.nombre="Memero del Cripto";
   
   
   
@@ -111,6 +122,11 @@ memero_cripto.nombre="Memero del Cripto";
     images_fiat [i] = loadImage ( "fiat_"+(i+1)+".jpg");
     images_cripto [i] = loadImage ( "cripto_"+(i+1)+".jpg");    
   }
+  
+  img_final_ethos = loadImage ( "ethos_final.jpg");
+  img_final_pathos = loadImage ( "pathos_final.jpg");
+  img_final_logos = loadImage ( "logos_final.jpg");
+  img_win_final = loadImage ( "win_final.jpg");
   
   // set presentation parameters
   font = loadFont ("Impact-52.vlw");
@@ -138,6 +154,10 @@ void draw () {
     img.resize(ancho, height);
     img_fiat.resize(ancho, height);
     img_cripto.resize(ancho, height);
+    img_final_ethos.resize(ancho, height);
+    img_final_pathos.resize(ancho, height);
+    img_final_logos.resize(ancho, height);
+    img_win_final.resize(ancho, height);
   
     int w_oro = img.width;
     int h_oro = img.height;
@@ -147,10 +167,18 @@ void draw () {
     int h_cripto = img_cripto.height;
 
   
-  image (img, x_1, 0, ancho, height);
-  image (img_fiat, x_2, 0, ancho, height);
-  image (img_cripto, x_3, 0, ancho, height);
+  regla_victoria();
   
+  //oro canvas
+  /*
+  if(!memero_oro.still_Alive)
+  {
+    img = memero_oro.badge_meme;
+    line = memero_oro.mood;
+  }
+  */
+  
+  image (img, x_1, 0, ancho, height);
   
   float x_oro_text = w_oro/2;//width * 0.25;
   
@@ -163,6 +191,17 @@ void draw () {
   
   
   
+  //fiat canvas
+  /*
+  if(!memero_fiat.still_Alive)
+  {
+    img_fiat = memero_fiat.badge_meme;
+    line_fiat = memero_fiat.mood;
+  }
+  */
+  
+  image (img_fiat, x_2, 0, ancho, height);
+  
   float x_fiat_text = x_3-(ancho/2);//width * 0.5;
   
   textAlign(CENTER, BOTTOM);
@@ -172,6 +211,20 @@ void draw () {
   text (line_fiat, x_fiat_text, h_fiat-20); //50,0 , w-100. w-20
   
   
+  
+  
+  // cripto canvas
+  /*
+  if(!memero_cripto.still_Alive)
+  {
+    img_cripto = memero_cripto.badge_meme;
+    line_cripto = memero_cripto.mood;
+  }
+  
+  */
+  
+  image (img_cripto, x_3, 0, ancho, height);
+  
   float x_cripto_text = x_4-(ancho/2);//width * 0.5;
   
   textAlign(CENTER, BOTTOM);
@@ -180,7 +233,64 @@ void draw () {
   fill (255);
   text (line_cripto, x_cripto_text, h_cripto-20); //50,0 , w-100. w-20
   
+  
+  
+  
+  
 }
+
+
+void regla_victoria(){
+ 
+  if(!memero_oro.still_Alive)
+  {
+    img = memero_oro.badge_meme;
+    line = memero_oro.mood;
+  }
+  
+   if(!memero_fiat.still_Alive)
+  {
+    img_fiat = memero_fiat.badge_meme;
+    line_fiat = memero_fiat.mood;
+  }
+  
+   if(!memero_cripto.still_Alive)
+  {
+    img_cripto = memero_cripto.badge_meme;
+    line_cripto = memero_cripto.mood;
+  }
+  
+  if(memero_oro.still_Alive && !memero_fiat.still_Alive && !memero_cripto.still_Alive)
+  {
+     memero_oro.badge_meme = img_win_final;
+     img = memero_oro.badge_meme; 
+     memero_oro.ethos_level = 10;
+     memero_oro.pathos_level =10;
+     memero_oro.logos_level = 10;
+  }
+  
+  if(memero_fiat.still_Alive && !memero_oro.still_Alive && !memero_cripto.still_Alive)
+  {
+     memero_fiat.badge_meme = img_win_final;
+     img_fiat = memero_fiat.badge_meme; 
+     memero_fiat.ethos_level = 10;
+     memero_fiat.pathos_level =10;
+     memero_fiat.logos_level = 10;
+  }
+  
+  if(memero_cripto.still_Alive && !memero_oro.still_Alive && !memero_fiat.still_Alive)
+  {
+     memero_cripto.badge_meme = img_win_final;
+     img_cripto = memero_cripto.badge_meme; 
+     memero_cripto.ethos_level = 10;
+     memero_cripto.pathos_level =10;
+     memero_cripto.logos_level = 10;
+  }  
+
+}
+
+
+
 // ...but obstacles are set only by yourself - you attach yourself to them!
 Map <String,Attack> generate () {
   
@@ -281,10 +391,10 @@ void turno(){
     memero_cripto.pathos_level = memero_cripto.pathos_level - ataque_oro.pathos_attack - ataque_fiat.pathos_attack;
     memero_cripto.logos_level = memero_cripto.logos_level - ataque_oro.logos_attack - ataque_fiat.logos_attack;
     
-    println("Memero Cripto ante estos momoazos: Ethos="+memero_fiat.ethos_level+" Pathos="+memero_fiat.pathos_level+" Logos="+memero_fiat.logos_level);
-    regla_ethos(memero_fiat);
-    regla_pathos(memero_fiat);
-    regla_logos(memero_fiat);
+    println("Memero Cripto ante estos momoazos: Ethos="+memero_cripto.ethos_level+" Pathos="+memero_cripto.pathos_level+" Logos="+memero_cripto.logos_level);
+    regla_ethos(memero_cripto);
+    regla_pathos(memero_cripto);
+    regla_logos(memero_cripto);
     
 
 
@@ -293,7 +403,10 @@ void turno(){
 
 void regla_ethos(Memero memero){
   if(memero.ethos_level<=0){
-    println(memero.nombre+" se siente ingnorante y promete investigar sobre el tema ( U_U) "); 
+    memero.mood_ethos = memero.nombre+" se siente ingnorante \n y promete investigar sobre el tema ( U_U) "; 
+    println(memero.mood_ethos); 
+    memero.badge_meme = img_final_ethos;
+    memero.mood = memero.mood+"\n"+memero.mood_ethos;
     memero.still_Alive=false;
   }
 } 
@@ -301,14 +414,20 @@ void regla_ethos(Memero memero){
 
 void regla_pathos(Memero memero){
   if(memero.pathos_level<=0){
-    println(memero.nombre+" ya se enojo y esta agrediendo ( >_< ) "); 
+    memero.mood_pathos = memero.nombre+" ya se enojo \n y esta agrediendo a todos ( >_< ) "; 
+    println(memero.mood_pathos); 
+    memero.badge_meme = img_final_pathos;
+    memero.mood = memero.mood+"\n"+memero.mood_pathos;
     memero.still_Alive=false;
   }
 } 
 
 void regla_logos(Memero memero){
-  if(memero.logos_level<=0){
-    println(memero.nombre+" se siente tonto. Pide disculpas por sus tonterias ( @_@) "); 
+  if(memero.logos_level<=0){    
+    memero.mood_logos = memero.nombre+" se siente tonto \n y pide disculpas ( @_@) "; 
+    memero.badge_meme = img_final_logos;
+    memero.mood = memero.mood+"\n"+memero.mood_logos;
+    println(memero.mood_logos);     
     memero.still_Alive=false;
   }
 }

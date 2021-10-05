@@ -130,7 +130,7 @@ void setup () {
   
   // set presentation parameters
   font = loadFont ("Impact-52.vlw");
-  textFont (font, 24);// font 52
+  textFont (font, 27);// font 52
   textAlign (CENTER, BOTTOM);
   noStroke ();
   
@@ -268,6 +268,12 @@ void regla_victoria(){
 }
 
 
+String fix_line(String my_line){
+  my_line = join (my_line.split("(?<=\\G.{55})"),"-");
+  my_line =  my_line.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("  ","\n").replace("\n\n","\n").replace("-","-\n").replace("!\n!","!").replace("!!","!");
+ return my_line; 
+}
+
 
 // ...but obstacles are set only by yourself - you attach yourself to them!
 Map <String,Attack> generate () {
@@ -277,9 +283,8 @@ Map <String,Attack> generate () {
   Attack ataque_oro = new Attack();
   // use RiTa's Markov to produce a new line
   line = join (rm.generate (1), "\n");
-  line = join (line.split("(?<=\\G.{60})"),"\n");
-  line =  line.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
-  //line = join (line.split("(?<=\\G.{60})"),"\n");
+  line = fix_line(line);
+
   
   ataque_oro.linea = line;
   ataque_oro.ethos_attack = (int)random (0, 2);
@@ -291,8 +296,8 @@ Map <String,Attack> generate () {
   Attack ataque_fiat = new Attack();
   
   line_fiat = join (rm_fiat.generate (1), "\n");
-  line_fiat = join (line_fiat.split("(?<=\\G.{60})"),"\n");
-  line_fiat =  line_fiat.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
+  line_fiat = fix_line(line_fiat);
+
   
   ataque_fiat.linea = line_fiat;
   ataque_fiat.ethos_attack = (int)random (0, 2);
@@ -304,8 +309,8 @@ Map <String,Attack> generate () {
   Attack ataque_cripto = new Attack();
   
   line_cripto = join (rm_cripto.generate (1), "\n");
-  line_cripto = join (line_cripto.split("(?<=\\G.{60})"),"\n");
-  line_cripto =  line_cripto.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("!!","!");
+  line_cripto = fix_line(line_cripto);
+
   
   ataque_cripto.linea = line_cripto;
   ataque_cripto.ethos_attack = (int)random (0, 2);

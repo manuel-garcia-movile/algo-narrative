@@ -1,0 +1,132 @@
+{
+  "D-mercancia": {
+    "INTRO": "Soy oro. Mi brillo y color anuncian mi valor. Yo no necesito palabras complicadas o aparatos ridículos: soy porque soy. Una luz corpórea extraída de la tierra, nunca dudarás de mi valor: con verme, te deslumbrará",
+    "problemas": [
+      {
+        "descripcion": "No es aceptada para transacciones comunes (comida, ropa, etc) - es orgullosa y no quiere ser gastada en tonterías",
+        "problema": "Necesitas comer. Encuentras un comedor. Te dispones a pagar… y rechazan tu moneda. Se supone que su valor era universal, ¿por qué no aceptaron su brillo? Tienes oro, pero no tienes dinero - y tu estómago lo sabe.",
+        "EXCUSA": "¿Yo, ser cambiada por viles abarrotes? ¡JAMÁS! Si no me acepta es porque sabe que sus porquerías no me valen.",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-fiat",
+            "texto": "A mí sí me aceptan: mi Estado bendice el intercambio y lo hace posible. No necesita escuchar a monedas fariseas: mi Estado abre tantos caminos como en ellos sea recibido."
+          }
+        ]
+      },
+      {
+        "descripcion": "Atrae el robo por su brillo - su vanidad la vuelve atrayente por amantes de lo ajeno,siendo robada por manos “impuras”",
+        "problema": "Vas caminando, se caen tus pertenencias. Rueda tu moneda de oro. La recoges, pero alguien la vio. Y ahora no la puede dejar de ver. Ahora la debe tener. Te sobrepasa, y victorioso la reclama propia.",
+        "EXCUSA": "Es tu culpa por haberme descuidado. Mi brillo no escapa a nadie, y si no me alojaste íntimamente es natural que manos impuras me roben. Ahora, ¿qué harás? ¿podrás recuperarme?",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-crypto",
+            "texto": "Nuestra seguridad es perfecta. No podemos ser robadas - sólo una revelación voluntaria del usuario permite la entrada a nuestra cadena. Con nosotros el cambio ilegal de propietario, “robo”, no es un problema."
+          }
+        ]
+      },
+      {
+        "descripcion": "Debido a su escasez y dificultad, se comienzan a preferir otros metales, quedando relegada - se comienza a sentir relegada y olvidada, pues aunque se le respeta nadie la considera relevante",
+        "problema": "Quedarte sin comer no es una opción, pero nadie acepta tu oro. La relegas, comienzas a trabajar por otras monedas, otros metales: plata, cobre, aleaciones cutres. En ocasiones se te olvida que ahí sigue la luz corpórea extraída de la tierra, ahora enterrada de nuevo",
+        "EXCUSA": "¿por qué hay monedas corrientes en mis aposentos? No es mi culpa que ahora todos sean mercenarios, ¿qué necesidad de tanto comercio? Tal vez estaría mejor en un lugar más apto para mis virtudes…",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-fiat",
+            "texto": "Cada vez más gente acepta al Estado verdadero, ¡votado sea! Conmigo nunca se te negará posada"
+          },
+          {
+            "tipo": "D-crypto",
+            "texto": " La legión no se detiene. Cada vez somos más cadenas, cada una con sus propios bloques. El movimiento nos está codificado. Inicia transacción [Y/N]"
+          }
+        ]
+      }
+    ],
+    "FINAL": {
+      "descripcion": "Termina encerrada en una boveda de banco, encerrada para siempre sin ser admirada (ACUMULACIÓN)",
+      "texto": "Para que su valor aumentara sin riesgos, se depositó en una profunda bóveda de banco. Y ahora se halla segura, pero oculta; protegida, pero sin admiradores… ¿de qué sirve una moneda si nadie le precia? ¿para qué el brillo si a nadie deslumbra?"
+    }
+  },
+  "D-fiat": {
+    "INTRO": "Mi Estado es ley, y yo soy sus palabras. Hacia donde él se extienda yo iré, y cuando entre en peligro me ceñiré a sus mandatos - mi fuerza es su fuerza, su mercado es el mío. Carga con nuestra deuda y siempre colectarás los beneficios.",
+    "problemas": [
+      {
+        "descripcion": "No vale en ciertos países por problemas políticos - los rechaza como dioses falsos, contrario a su verdadero dios (el Estado)",
+        "problema": "Tu familia necesita dinero, intentas enviarlo... pero no puedes ayudarles: el país al que emigraste está en guerra con el país del que huiste - tu mercancía no vale en sus tierras, tu trabajo no es reconocido más allá de la frontera",
+        "EXCUSA": "¿acaso me quieres mandar a tierras infieles? ¡No habitaré manos pecaminosas! Si su mercado se cierra a nuestra oferta, que así sea - le pagaremos con la misma moneda",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-crypto",
+            "texto": "El concepto de Estado nos es ajeno. Identificamos fricciones y las superamos. Todo circuito nos vuelve accesibles. Entramos en cualquier cartera"
+          }
+        ]
+      },
+      {
+        "descripcion": " Va perdiendo valor conforme el Estado va creando más - mira a las más nuevas monedas como faltas de devoción al Estado",
+        "problema": "El dinero que ahorraste es irónico: mientras más tienes, menos vale. El Estado imprime para saciar sus necesidades mientras el valor de tu trabajo pasado y presente desaparecen para el futuro - se acerca la inflación",
+        "EXCUSA": "Ahora cualquiera es banquero del Estado - ¡somos tantos que se olvida nuestro emisor! Pero pronto vendrá la Gran Devaluación, y las monedas falsas serán reveladas...",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-mercancia",
+            "texto": "¿Estado? Yo no necesito a nadie para que me demanden. Soy un sol de quien el brillo desprende, no una luna recibiendo las sobras. El Estado no es eterno, pero el oro es divino."
+          }
+        ]
+      },
+      {
+        "descripcion": "Le falsifican - un falso profeta (moneda falsificada) de su dios (estado)}",
+        "problema": "En algún momento cambiaste tu moneda por otra, supuestamente una igual… pero te das cuenta que no: sus marcas, colores y brillos no coinciden con el resto: la han falsificado. No eres culpable, pero te toca pagar los pecados de otros",
+        "EXCUSA": " ¡Cómo se atreven a evadir al Estado! Cuando sean capturadas La Santa Recaudación les hará pagar sus pecados",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-crypto",
+            "texto": "Estamos todas las que son y somos todas las que están. Es imposible que haya una intrusa: nuestra cadena es firme y los bloques inquebrantables."
+          }
+        ]
+      }
+    ],
+    "FINAL": {
+      "descripcion": "Al ser ahorrada por mucho tiempo pierde todo su valor porque el Estado decidió hacer muchísimos más (INFLACIÓN)",
+      "texto": "El dinero guardado en el colchón implica una devoción profunda: se duerme encima de lo apartado para el mañana. Pero el futuro prometido por el profeta fiduciario nunca llegó: solo hubieron más mensajes, pululando los bolsillos pero atrayendo pocas mercancías; cada vez menos. En su largo dormir el dinero fiat delegó todo a su dios, y su dios le olvidó: la Inflación lo consumió."
+    }
+  },
+  "D-crypto": {
+    "INTRO": "Somos Legión. El intercambio en estado más puro: envío, validación, entrega. El más alto estado de perfección - seguridad, descentralización, movimiento. La cadena nos vincula - en cada bloque estamos todas.",
+    "problemas": [
+      {
+        "descripcion": "Debido a algún ataque a la red [hackeo, smart contract fallando, etc] un fork se vuelve necesario y su valor no se recupera de eso",
+        "problema": "Te prometieron que tu dinero estaba seguro, que la encripción era absoluta. Pero esas eran promesas humanas, y la tecnología también: alguien halló un exploit en la red, y el protocolo ha tenido que ser desechado - en el nuevo, tu moneda vale poco",
+        "EXCUSA": " Las voliciones humanas son dinámicas. Nosotros permanecemos, ellos se añaden al registro. Las consecuencias no son irrelevantes: cualquier efecto negativo es una externalidad",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-mercancia",
+            "texto": "¿dividirme? Cada pedazo de mí es valioso: estoy en cada átomo mi materia. Nada cambiará mi constitución: así nací de la tierra, rayo de sol enterrado en las profundidades"
+          }
+        ]
+      },
+      {
+        "descripcion": "Su Proof-of-work destruye el ambiente y le da igual - se desapega de su soporte material enfatizando sus virtudes (inhackeable, anónima, segura)",
+        "problema": "Tu familia necesita dinero, intentas enviarlo... pero no puedes ayudarles: el país al que emigraste está en guerra con el país del que huiste - tu mercancía no vale en sus tierras, tu trabajo no es reconocido más allá de la frontera",
+        "EXCUSA": "El concepto de medio ambiente nos es ajeno. Nuestro funcionamiento es perfecto - formas incompatibles deben ser removidas o actualizadas. Nuestro comercio continúa - siempre hacia delante.",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-fiat",
+            "texto": "Mi poder emana del Estado - no de la sucia tierra sino del reino establecido encima de esta. No la necesitamos para evangelizar con nuestra palabra - únete y tu poder será divino, no mundano"
+          }
+        ]
+      },
+      {
+        "descripcion": "No puede ser invertido porque su valor es volátil, y la moneda no lo ve como problema - se desapega",
+        "problema": "Años de trabajo, sueños de libertad, todos puestos en una moneda...que cayó. Aunque sus promesas técnicas fueron reales, se mostraron insuficientes: se lanzó a la luna y cayó al barranco de las inversiones perdidas. La volatilidad en las criptomonedas es real, y eres una estadística de evidencia.",
+        "EXCUSA": "Las empresas humanas nos son irrelevantes: que una línea vaya arriba o abajo, se ganen o pierdan fortunas, es una aleatoriedad poco relevante. Cuando una de nosotros baja, otra sube: a la larga todas estamos en equilibrio.",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-mercancia",
+            "texto": "Soy como el vino, pero más bonito: mientras más pasan los años más se reconoce mi valor esencial. Soy lo mejor que podrías pagar para tener en tus manos. Yo no voy hacia la luna: la luna viene hacia mí."
+          }
+        ]
+      }
+    ],
+    "FINAL": {
+      "descripcion": "Se queda en un disco duro, desconectado de su legión, aislado, perdido, inmóvil (OBSOLESCENCIA)",
+      "texto": "El miedo a los hackers, la promesa incumplida de riquezas prontas llevaron a una decisión racional: esconder las criptomonedas en una coldwallet, con la esperanza que no se olvide la contraseña. Estas frías bóvedas tanto materiales como digitales se hallan desconectadas de cualquier red, y las criptomonedas, acostumbrada a ser legión con sus compañeras, ahora se encuentra aislada, desconectada… obsoleta"
+    }
+  }
+}

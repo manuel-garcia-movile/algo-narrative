@@ -1,0 +1,22 @@
+{
+  "D-mercancia": {
+    "INTRO": "",
+    "problemas": [
+      {
+        "descripcion": "",
+        "problema": "",
+        "EXCUSA": "",
+        "SEDUCCIONES": [
+          {
+            "tipo": "D-fiat",
+            "texto": ""
+          }
+        ]
+      }
+    ],
+    "FINAL": {
+      "descripcion": "",
+      "texto": ""
+    }
+  }
+}

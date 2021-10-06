@@ -66,6 +66,12 @@ void setup() {
   
   
     /// prepare initial controls
+    
+   img_oro_inicio.resize(ancho, altura_img_inicio);
+   img_fiat_inicio.resize(ancho, altura_img_inicio);
+   img_cripto_inicio.resize(ancho, altura_img_inicio);
+    
+    
   PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
   cp5.addButton("elijo_oro")
      .setValue(1)
@@ -149,9 +155,9 @@ void draw(){
   
  
   
-    img_oro_inicio.resize(ancho, altura_img_inicio);
-    img_fiat_inicio.resize(ancho, altura_img_inicio);
-    img_cripto_inicio.resize(ancho, altura_img_inicio);
+   // img_oro_inicio.resize(ancho, altura_img_inicio);
+   // img_fiat_inicio.resize(ancho, altura_img_inicio);
+   // img_cripto_inicio.resize(ancho, altura_img_inicio);
   
   
      //oro canvas

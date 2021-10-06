@@ -75,15 +75,50 @@ void escenario(String keyMoneda){
   int index = (int)random (0, 2);
   
   JSONObject problema = problemas.getJSONObject(index);
-  String txtProblema = problema.getString("problema");
-  String txtExcusa = problema.getString("EXCUSA");
+  String txtProblema = fix_line(problema.getString("problema"));
+  String txtExcusa = fix_line(problema.getString("EXCUSA"));
   
+  JSONArray seducciones = problema.getJSONArray("SEDUCCIONES");
+  
+  
+ for (int i = 0; i< seducciones.size(); i++) {
+   JSONObject seduccion = seducciones.getJSONObject(i);
+   String tipo_moneda = seduccion.getString("tipo");
+   String texto_seduccion = fix_line(seduccion.getString("texto")); 
+   
+   switch(tipo_moneda){
+         case KEY_ORO:{
+                   textlabelIntro_oro
+                   .setText(texto_seduccion)
+                   .show();       
+                   break;
+                 }
+          case KEY_FIAT:{
+                   textlabelIntro_fiat
+                   .setText(texto_seduccion)
+                   .show();       
+                   break;
+                 }
+          case KEY_CRIPTO:{
+                   textlabelIntro_cripto
+                   .setText(texto_seduccion)
+                   .show();       
+                   break;
+                 }            
+     default:{break;}
+   }
+  
+   
+ }
+  
+  
+
   
   PFont fuente = (keyMoneda == KEY_ORO ? font_oro : (keyMoneda == KEY_FIAT ? font_fiat : font_cripto) );
   
    textlabelProblema = cp5.addTextlabel("label_problema")
                     .setText(txtProblema)
-                    .setPosition(100,50)
+                    .setPosition(10,600)
                     .setColorValue(0x00000000) // amarillo 0xffffff00
                     .setFont(fuente);
                     
@@ -91,7 +126,7 @@ void escenario(String keyMoneda){
   
   textlabelExcusa = cp5.addTextlabel("label_excusa")
                     .setText(txtExcusa)
-                    .setPosition(10,100)
+                    .setPosition(200,900)
                     .setColorValue(0x00000000)
                     .setFont(fuente);
                     
@@ -108,7 +143,8 @@ void escenario(String keyMoneda){
 
 /**
 Misterioso comportamiento hace que se activen todos los eventos del 
-mouse al abrir la aplicacion. La vida es corta, asi que solo voy a meter un
+mouse al abrir la aplicacion. 
+La vida es corta, asi que solo voy a meter un
 contador para que no este chingando con eso y quiza algun dia alguien lo arregle bien.
 **/
 

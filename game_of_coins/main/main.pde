@@ -1,4 +1,16 @@
+/**
 
+Lord of the money es un juego experimental donde
+@Sr. Blacksun (Programador)
+@Especulativo (Filosofo)
+@Exon Stigmata (Artista grafico)
+
+Exploran la narrativa de tres formas de dinero: 
+El dinero mercancia (Metales preciosos)
+El dinero fiat (Dinero creado por el gobierno basado en deuda)
+El cripto dinero
+
+**/
 
 import controlP5.*;
 
@@ -179,7 +191,7 @@ void draw(){
   
 }
 
-
+/*
 public void controlEvent(ControlEvent theEvent) {
   println("CONTROL EVENT: "+theEvent.getController().getName());
 }
@@ -199,3 +211,4 @@ public void elijo_cripto(int theValue) {
   println("a button event from a button: "+theValue);
 
 }
+*/

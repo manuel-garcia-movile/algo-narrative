@@ -77,7 +77,39 @@ void escenario(String keyMoneda){
   // c/u tiene siempre 3 problemas disponibles
   int index = (int)random (0, 2);
   
-  JSONObject problema = problemas.getJSONObject(index);
+  JSONObject problema = null;
+  
+  //busca un problema que no haya ocurrido
+  for(int i = 0; i< problemas.size(); i++){
+    
+    problema = problemas.getJSONObject(i);
+    String DONE = problema.getString("DONE");
+  
+  
+    if(DONE==null){ // still problem?    
+      break;
+    }else{ // no more problems for you
+      problema = null;
+    }
+  
+  }
+  
+  if(problema != null){
+    face_problem(problema, keyMoneda);
+  }else{
+    finalizar(moneda, keyMoneda);
+  }
+  
+
+
+} 
+
+
+
+void face_problem(JSONObject problema, String keyMoneda){
+
+  //JSONObject problema = problemas.getJSONObject(index);
+  problema.setString("DONE","TRUE");
   String txtProblema = fix_line(problema.getString("problema"));
   String txtExcusa = fix_line(problema.getString("EXCUSA"));
   
@@ -117,9 +149,12 @@ void escenario(String keyMoneda){
    
  }
   
-    PFont fuente = (keyMoneda == KEY_ORO ? font_oro : (keyMoneda == KEY_FIAT ? font_fiat : font_cripto) );
     
-    textlabelExcusa = cp5.addTextlabel("label_excusa").setPosition(200,900).setColorValue(0x00000000).setText(txtExcusa).hide();
+    textlabelExcusa = cp5.addTextlabel("label_excusa")
+                         .setPosition(200,900)
+                         .setColorValue(0x00000000)
+                         .setText(txtExcusa)
+                         .hide();
     textlabelExcusa.draw(this);
 
      switch(keyMoneda){
@@ -164,35 +199,67 @@ void escenario(String keyMoneda){
 
 
 
+}
 
 
 
-  /*
-  PFont fuente = (keyMoneda == KEY_ORO ? font_oro : (keyMoneda == KEY_FIAT ? font_fiat : font_cripto) );
+void finalizar(JSONObject moneda,String keyMoneda){
+println("ADIOS");
+
+//hideIntros();
+  cp5.getController("elijo_oro").hide();
+  cp5.getController("elijo_cripto").hide();
+
+JSONObject FINAL = moneda.getJSONObject("FINAL");
+String textoFinal = fix_line(FINAL.getString("texto")); 
+
+
+PFont fuente = null;
+PImage imagen_final = null;
+
+switch(keyMoneda){
+  case KEY_ORO:{
+                fuente = font_oro;
+                imagen_final = loadImage ( "images/Oro Dead.jpeg");
+                break;
+              }
+  case KEY_FIAT:{
+                fuente = font_fiat;
+                imagen_final = loadImage ( "images/FIAT Dead.jpeg");
+                break;
+              }
+  case KEY_CRIPTO:{
+                fuente = font_cripto;
+                imagen_final = loadImage ( "images/Crypto Dead.jpeg");
+                break;
+              }
+            
+}
+
+
+imagen_final.resize(width, height);
+     
+  PImage[] imgs_fiat_btn = {imagen_final,imagen_final,imagen_final};
+  Button end_button = (Button)cp5.getController("elijo_fiat"); 
   
-  textlabelProblema = cp5.addTextlabel("label_problema")
-                    .setText(txtProblema)
-                    .setPosition(10,600)
-                    .setColorValue(0x00000000) // amarillo 0xffffff00
-                    .setFont(fuente);
-                    
-  textlabelProblema.draw(this);  
-  
-  textlabelExcusa = cp5.addTextlabel("label_excusa")
-                    .setText(txtExcusa)
-                    .setPosition(200,900)
-                    .setColorValue(0x00000000)
-                    .setFont(fuente);
-                    
-  textlabelExcusa.draw(this); 
-  
-  */
-
-} 
+     end_button
+     .setPosition(0,0) //140,300
+     .setImages(imgs_fiat_btn)
+     .updateSize()
+     .show()
+     ;   
 
 
 
+textlabelIntro_oro
+                   .setText(textoFinal)
+                   .setFont(fuente)
+                   .setColorValue(0xffffffff)
+                   .show();
 
+
+
+}
 
 
 /**

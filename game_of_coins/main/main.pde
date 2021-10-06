@@ -26,6 +26,10 @@ PImage img_oro_inicio;
 PImage img_fiat_inicio;
 PImage img_cripto_inicio;
 
+PImage img_oro_final;
+PImage img_fiat_final;
+PImage img_cripto_final;
+
 
 String intro_mercancia;
 String intro_fiat;
@@ -150,13 +154,20 @@ void loadData(){
   json_db = loadJSONObject("model/DB.json");
   
   // set presentation parameters
-  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",24);
+  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",30);
   font_fiat = createFont("fonts/Cinzel/Cinzel-VariableFont_wght.ttf",17);
   font_cripto = createFont("fonts/Turret_Road/TurretRoad-Regular.ttf",17);
   
   img_oro_inicio = loadImage ( "images/oro_basic.png");
   img_fiat_inicio = loadImage ( "images/fiat_basic.png");
   img_cripto_inicio = loadImage ( "images/cripto_basic.png");
+  
+  
+  img_oro_final = loadImage ( "images/Oro Dead.jpeg");
+  img_fiat_final = loadImage ( "images/FIAT Dead.jpeg");
+  img_cripto_final = loadImage ( "images/Crypto Dead.jpeg");
+  
+  
     
 }
 
@@ -168,6 +179,7 @@ String fix_line(String my_line){
                     .replace("!","!\n")
                     .replace(",",",\n")
                     .replace(":",":\n")
+                    .replace("…","...\n")
                     .replace("  ","\n")
                     .replace("\n\n","\n")
                     .replace("-","\n")

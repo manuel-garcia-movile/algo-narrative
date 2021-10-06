@@ -167,6 +167,7 @@ String fix_line(String my_line){
                     .replace("?","?\n")
                     .replace("!","!\n")
                     .replace(",",",\n")
+                    .replace(":",":\n")
                     .replace("  ","\n")
                     .replace("\n\n","\n")
                     .replace("-","\n")

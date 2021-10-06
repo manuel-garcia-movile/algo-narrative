@@ -40,14 +40,14 @@ void oro_journey(){
   
   escenario(KEY_ORO);
                  
-  
-
 }
 
 void fiat_journey(){
   hideIntros();
   cp5.getController("elijo_oro").hide();
   cp5.getController("elijo_cripto").hide();
+  
+  escenario(KEY_FIAT);
 
 }
 
@@ -55,6 +55,9 @@ void cripto_journey(){
   hideIntros();
   cp5.getController("elijo_fiat").hide();
   cp5.getController("elijo_oro").hide();
+  
+  escenario(KEY_CRIPTO);
+  
 }
 
 
@@ -71,7 +74,7 @@ void escenario(String keyMoneda){
   JSONObject moneda = json_db.getJSONObject(keyMoneda);
   JSONArray problemas = moneda.getJSONArray("problemas");
   
-  // c/u solo tiene 3 problemas disponibles
+  // c/u tiene siempre 3 problemas disponibles
   int index = (int)random (0, 2);
   
   JSONObject problema = problemas.getJSONObject(index);
@@ -80,29 +83,32 @@ void escenario(String keyMoneda){
   
   JSONArray seducciones = problema.getJSONArray("SEDUCCIONES");
   
-  
+ //por logica maximo deberia hacer 2 seducciones: 
  for (int i = 0; i< seducciones.size(); i++) {
    JSONObject seduccion = seducciones.getJSONObject(i);
-   String tipo_moneda = seduccion.getString("tipo");
+   String tipo_moneda_seduccion = seduccion.getString("tipo");
    String texto_seduccion = fix_line(seduccion.getString("texto")); 
    
-   switch(tipo_moneda){
+   switch(tipo_moneda_seduccion){
          case KEY_ORO:{
                    textlabelIntro_oro
                    .setText(texto_seduccion)
-                   .show();       
+                   .show();
+                   cp5.getController("elijo_oro").show();
                    break;
                  }
           case KEY_FIAT:{
                    textlabelIntro_fiat
                    .setText(texto_seduccion)
-                   .show();       
+                   .show();
+                   cp5.getController("elijo_fiat").show();
                    break;
                  }
           case KEY_CRIPTO:{
                    textlabelIntro_cripto
                    .setText(texto_seduccion)
-                   .show();       
+                   .show();
+                   cp5.getController("elijo_cripto").show();
                    break;
                  }            
      default:{break;}
@@ -111,12 +117,60 @@ void escenario(String keyMoneda){
    
  }
   
-  
+    PFont fuente = (keyMoneda == KEY_ORO ? font_oro : (keyMoneda == KEY_FIAT ? font_fiat : font_cripto) );
+    
+    textlabelExcusa = cp5.addTextlabel("label_excusa").setPosition(200,900).setColorValue(0x00000000).setText(txtExcusa).hide();
+    textlabelExcusa.draw(this);
 
-  
+     switch(keyMoneda){
+         case KEY_ORO:{
+                   textlabelIntro_oro
+                   .setText(txtProblema)
+                   .show();
+                   cp5.getController("elijo_oro").show();
+                   
+                   textlabelExcusa                   
+                   .setFont(font_oro)
+                   .show();
+                   
+                   break;
+                 }
+          case KEY_FIAT:{
+                   textlabelIntro_fiat
+                   .setText(txtProblema)
+                   .show();
+                   cp5.getController("elijo_fiat").show();
+                   
+                   textlabelExcusa                   
+                   .setFont(font_fiat)
+                   .show();
+
+                   break;
+                 }
+          case KEY_CRIPTO:{
+                   textlabelIntro_cripto
+                   .setText(txtProblema)
+                   .show();
+                   cp5.getController("elijo_cripto").show();
+                   
+                   textlabelExcusa                   
+                   .setFont(font_cripto)
+                   .show();
+
+                   break;
+                 }            
+     default:{break;}
+   }
+
+
+
+
+
+
+  /*
   PFont fuente = (keyMoneda == KEY_ORO ? font_oro : (keyMoneda == KEY_FIAT ? font_fiat : font_cripto) );
   
-   textlabelProblema = cp5.addTextlabel("label_problema")
+  textlabelProblema = cp5.addTextlabel("label_problema")
                     .setText(txtProblema)
                     .setPosition(10,600)
                     .setColorValue(0x00000000) // amarillo 0xffffff00
@@ -132,7 +186,7 @@ void escenario(String keyMoneda){
                     
   textlabelExcusa.draw(this); 
   
-  
+  */
 
 } 
 

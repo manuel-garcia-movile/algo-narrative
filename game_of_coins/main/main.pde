@@ -38,7 +38,11 @@ String intro_cripto;
     int x_2; 
     int x_3; 
     int x_4; 
-    int altura_img_inicio; 
+    int altura_img_inicio;
+    
+Textlabel textlabelIntro_oro;
+Textlabel textlabelIntro_fiat;
+Textlabel textlabelIntro_cripto;
 
 
 
@@ -113,6 +117,32 @@ void setup() {
      ;     
 
   
+  textlabelIntro_oro = cp5.addTextlabel("label_intro_oro")
+                    .setText(intro_mercancia)
+                    .setPosition(20,700)
+                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setFont(font_oro);
+                    
+  textlabelIntro_oro.draw(this);  
+  
+  textlabelIntro_fiat = cp5.addTextlabel("label_intro_fiat")
+                    .setText(intro_fiat)
+                    .setPosition(550,700)
+                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setFont(font_fiat);
+                    
+  textlabelIntro_fiat.draw(this);   
+  
+  
+  textlabelIntro_cripto = cp5.addTextlabel("label_intro_cripto")
+                    .setText(intro_cripto)
+                    .setPosition(1200,700)
+                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setFont(font_cripto);
+                    
+  textlabelIntro_cripto.draw(this); 
+  
+  
   
 }
 
@@ -153,62 +183,4 @@ void draw(){
   background(255);
   noStroke();
   fill(0);
-  textFont(font_oro);
-  text(intro_mercancia, 20, 700);
-  
-  textFont(font_fiat);
-  text(intro_fiat, 550, 700);
-  
-  textFont(font_cripto);
-  text(intro_cripto, 1200, 700);
-  
-  
-
-  
- 
-  
-   // img_oro_inicio.resize(ancho, altura_img_inicio);
-   // img_fiat_inicio.resize(ancho, altura_img_inicio);
-   // img_cripto_inicio.resize(ancho, altura_img_inicio);
-  
-  
-     //oro canvas
-  
- // image (img_oro_inicio, x_1, 0, ancho, altura_img_inicio);
-  
-   //fiat canvas
-  
-  //image (img_fiat_inicio, x_2, 0, ancho, altura_img_inicio);
-  
-  
-    // cripto canvas
-  
-  //image (img_cripto_inicio, x_3, 0, ancho, altura_img_inicio);
-  
-  
-  
-  
-  
 }
-
-/*
-public void controlEvent(ControlEvent theEvent) {
-  println("CONTROL EVENT: "+theEvent.getController().getName());
-}
-
-public void elijo_oro(int theValue) {
-  println("a button event from a button: "+theValue);
-
-}
-
-
-public void elijo_fiat(int theValue) {
-  println("a button event from a button: "+theValue);
-
-}
-
-public void elijo_cripto(int theValue) {
-  println("a button event from a button: "+theValue);
-
-}
-*/

@@ -1,5 +1,9 @@
 
 
+import controlP5.*;
+
+ControlP5 cp5;
+
 JSONObject json_db;
 
 PFont font_oro;
@@ -15,10 +19,35 @@ String intro_mercancia;
 String intro_fiat;
 String intro_cripto;
 
+
+//canvas vars
+    int ancho; 
+    int x_1; 
+    int x_2; 
+    int x_3; 
+    int x_4; 
+    int altura_img_inicio; 
+
+
+
 void setup() {
   surface.setTitle("Lord of the Coins"); 
   size(1700,975);
   loadData();
+  
+  //canvas setup
+  
+  cp5 = new ControlP5(this);
+  
+    ancho = width/3;
+    x_1 = 0;
+    x_2 = x_1+ancho;
+    x_3 = x_2+ancho;
+    x_4 = x_3+ancho;
+    altura_img_inicio = height-400;
+  
+  
+  //data setup
   
   JSONObject d_mercancia = json_db.getJSONObject("D-mercancia");
    intro_mercancia = d_mercancia.getString("INTRO");
@@ -36,6 +65,19 @@ void setup() {
   println("HOLAA: "+intro_cripto);
   
   
+  /// prepare initial controls
+  PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
+  cp5.addButton("elijo_oro")
+     .setValue(1)
+     .setPosition(140,300)
+     //.setPosition(img_oro_inicio, x_1, 0, ancho, altura_img_inicio)
+     .setImages(imgs)
+     .updateSize()
+     .hide()
+     ;
+     
+  
+  
   
 }
 
@@ -50,20 +92,49 @@ void loadData(){
   img_oro_inicio = loadImage ( "images/oro_basic.png");
   img_fiat_inicio = loadImage ( "images/fiat_basic.png");
   img_cripto_inicio = loadImage ( "images/cripto_basic.png");
-  
-
-  
+    
 }
 
+// text tuning functions
 String fix_line(String my_line){
   //my_line = join (my_line.split("(?<=\\G.{55})"),"\n");
-  my_line =  my_line.replace(".",".\n").replace("?","?\n").replace("!","!\n").replace(",",",\n").replace("  ","\n").replace("\n\n","\n").replace("-","\n").replace("!!","!");  
+  my_line =  my_line.replace(".",".\n")
+                    .replace("?","?\n")
+                    .replace("!","!\n")
+                    .replace(",",",\n")
+                    .replace("  ","\n")
+                    .replace("\n\n","\n")
+                    .replace("-","\n")
+                    .replace("!!","!");  
  return my_line; 
 }
 
 
+
+//mouse functions:
+/*
+boolean overRect(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void update(int x, int y) {
+if ( overRect(rectX, rectY, rectSize, rectSize) ) {
+    rectOver = true;
+  } else {
+    rectOver = false;
+  }
+}
+*/
+
 void draw(){
+  //update(mouseX, mouseY);
   background(255);
+  noStroke();
   fill(0);
   textFont(font_oro);
   text(intro_mercancia, 20, 700);
@@ -75,12 +146,7 @@ void draw(){
   text(intro_cripto, 1200, 700);
   
   
-    int ancho = width/3;
-    int x_1 = 0;
-    int x_2 = x_1+ancho;
-    int x_3 = x_2+ancho;
-    int x_4 = x_3+ancho;
-    int altura_img_inicio = height-400;
+
   
  
   
@@ -104,4 +170,14 @@ void draw(){
   
   
   
+}
+
+
+public void controlEvent(ControlEvent theEvent) {
+  println("CONTROL EVENT: "+theEvent.getController().getName());
+}
+
+public void elijo_oro(int theValue) {
+  println("a button event from a button: "+theValue);
+
 }

@@ -65,18 +65,35 @@ void setup() {
   println("HOLAA: "+intro_cripto);
   
   
-  /// prepare initial controls
+    /// prepare initial controls
   PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
   cp5.addButton("elijo_oro")
      .setValue(1)
-     .setPosition(140,300)
-     //.setPosition(img_oro_inicio, x_1, 0, ancho, altura_img_inicio)
+     .setPosition(0,0) //140,300
      .setImages(imgs)
      .updateSize()
-     .hide()
+     //.hide()
      ;
      
-  
+     
+  PImage[] imgs_fiat_btn = {img_fiat_inicio,img_fiat_inicio,img_fiat_inicio};
+  cp5.addButton("elijo_fiat")
+     .setValue(2)
+     .setPosition(ancho,0) //140,300
+     .setImages(imgs_fiat_btn)
+     .updateSize()
+     //.hide()
+     ;   
+     
+  PImage[] imgs_cripto_btn = {img_cripto_inicio,img_cripto_inicio,img_cripto_inicio};
+  cp5.addButton("elijo_cripto")
+     .setValue(3)
+     .setPosition(ancho*2,0) //140,300
+     .setImages(imgs_cripto_btn)
+     .updateSize()
+     //.hide()
+     ;     
+
   
   
 }
@@ -111,25 +128,7 @@ String fix_line(String my_line){
 
 
 
-//mouse functions:
-/*
-boolean overRect(int x, int y, int width, int height)  {
-  if (mouseX >= x && mouseX <= x+width && 
-      mouseY >= y && mouseY <= y+height) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
-void update(int x, int y) {
-if ( overRect(rectX, rectY, rectSize, rectSize) ) {
-    rectOver = true;
-  } else {
-    rectOver = false;
-  }
-}
-*/
 
 void draw(){
   //update(mouseX, mouseY);
@@ -157,16 +156,18 @@ void draw(){
   
      //oro canvas
   
-  image (img_oro_inicio, x_1, 0, ancho, altura_img_inicio);
+ // image (img_oro_inicio, x_1, 0, ancho, altura_img_inicio);
   
    //fiat canvas
   
-  image (img_fiat_inicio, x_2, 0, ancho, altura_img_inicio);
+  //image (img_fiat_inicio, x_2, 0, ancho, altura_img_inicio);
   
   
     // cripto canvas
   
-  image (img_cripto_inicio, x_3, 0, ancho, altura_img_inicio);
+  //image (img_cripto_inicio, x_3, 0, ancho, altura_img_inicio);
+  
+  
   
   
   
@@ -178,6 +179,17 @@ public void controlEvent(ControlEvent theEvent) {
 }
 
 public void elijo_oro(int theValue) {
+  println("a button event from a button: "+theValue);
+
+}
+
+
+public void elijo_fiat(int theValue) {
+  println("a button event from a button: "+theValue);
+
+}
+
+public void elijo_cripto(int theValue) {
   println("a button event from a button: "+theValue);
 
 }

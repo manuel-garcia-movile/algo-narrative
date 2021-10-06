@@ -246,6 +246,7 @@ imagen_final.resize(width, height);
      .setPosition(0,0) //140,300
      .setImages(imgs_fiat_btn)
      .updateSize()
+     .lock()
      .show()
      ;   
 

@@ -123,7 +123,7 @@ void setup() {
   
   textlabelIntro_oro = cp5.addTextlabel("label_intro_oro")
                     .setText(intro_mercancia)
-                    .setPosition(20,700)
+                    .setPosition(20,600)
                     .setColorValue(0x00000000) // amarillo 0xffffff00
                     .setFont(font_oro);
                     
@@ -131,7 +131,7 @@ void setup() {
   
   textlabelIntro_fiat = cp5.addTextlabel("label_intro_fiat")
                     .setText(intro_fiat)
-                    .setPosition(550,700)
+                    .setPosition(550,600)
                     .setColorValue(0x00000000) // amarillo 0xffffff00
                     .setFont(font_fiat);
                     
@@ -140,7 +140,7 @@ void setup() {
   
   textlabelIntro_cripto = cp5.addTextlabel("label_intro_cripto")
                     .setText(intro_cripto)
-                    .setPosition(1200,700)
+                    .setPosition(1200,600)
                     .setColorValue(0x00000000) // amarillo 0xffffff00
                     .setFont(font_cripto);
                     
@@ -154,21 +154,14 @@ void loadData(){
   json_db = loadJSONObject("model/DB.json");
   
   // set presentation parameters
-  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",30);
+  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",33);
   font_fiat = createFont("fonts/Cinzel/Cinzel-VariableFont_wght.ttf",17);
   font_cripto = createFont("fonts/Turret_Road/TurretRoad-Regular.ttf",17);
   
   img_oro_inicio = loadImage ( "images/oro_basic.png");
   img_fiat_inicio = loadImage ( "images/fiat_basic.png");
   img_cripto_inicio = loadImage ( "images/cripto_basic.png");
-  
-  
-  img_oro_final = loadImage ( "images/Oro Dead.jpeg");
-  img_fiat_final = loadImage ( "images/FIAT Dead.jpeg");
-  img_cripto_final = loadImage ( "images/Crypto Dead.jpeg");
-  
-  
-    
+      
 }
 
 // text tuning functions

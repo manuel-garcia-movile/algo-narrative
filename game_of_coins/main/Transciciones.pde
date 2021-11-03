@@ -134,7 +134,7 @@ void te_doy_excusa(){
      ;   
      
  textlabel_problem.setText(txtExcusa)
-                  .setPosition(ancho_img_excusa,0)
+                  .setPosition(ancho_img_excusa,600)
                   .show();    
   
   imagen_excusa.resize(width, height);

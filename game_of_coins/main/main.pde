@@ -112,7 +112,7 @@ void setup() {
    img_cripto.resize(ancho, altura_img_inicio);
     
     
-  PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
+  PImage[] imgs = {img_oro_inicio,img_oro_sed,img_oro_inicio};
   cp5.addButton("elijo_oro")
      .setValue(1)
      .setPosition(0,0) //140,300
@@ -122,7 +122,7 @@ void setup() {
      ;
      
      
-  PImage[] imgs_fiat_btn = {img_fiat_inicio,img_fiat_inicio,img_fiat_inicio};
+  PImage[] imgs_fiat_btn = {img_fiat_inicio,img_fiat_sed,img_fiat_inicio};
   cp5.addButton("elijo_fiat")
      .setValue(2)
      .setPosition(ancho,0) //140,300
@@ -131,7 +131,7 @@ void setup() {
      //.hide()
      ;   
      
-  PImage[] imgs_cripto_btn = {img_cripto_inicio,img_cripto_inicio,img_cripto_inicio};
+  PImage[] imgs_cripto_btn = {img_cripto_inicio,img_cripto_sed,img_cripto_inicio};
   cp5.addButton("elijo_cripto")
      .setValue(3)
      .setPosition(ancho*2,0) //140,300

@@ -144,7 +144,8 @@ void setup() {
   textlabelIntro_oro = cp5.addTextlabel("label_intro_oro")
                     .setText(intro_mercancia)
                     .setPosition(20,600)
-                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    //.setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setColorValue(0xffffffff)
                     .setFont(font_oro);
                     
   textlabelIntro_oro.draw(this);  
@@ -152,7 +153,8 @@ void setup() {
   textlabelIntro_fiat = cp5.addTextlabel("label_intro_fiat")
                     .setText(intro_fiat)
                     .setPosition(550,600)
-                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    //.setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setColorValue(0xffffffff)
                     .setFont(font_fiat);
                     
   textlabelIntro_fiat.draw(this);   
@@ -161,7 +163,8 @@ void setup() {
   textlabelIntro_cripto = cp5.addTextlabel("label_intro_cripto")
                     .setText(intro_cripto)
                     .setPosition(1200,600)
-                    .setColorValue(0x00000000) // amarillo 0xffffff00
+                    //.setColorValue(0x00000000) // amarillo 0xffffff00
+                    .setColorValue(0xffffffff)
                     .setFont(font_cripto);
                     
   textlabelIntro_cripto.draw(this); 

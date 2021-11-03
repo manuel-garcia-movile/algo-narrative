@@ -79,6 +79,8 @@ void te_doy_excusa(){
   String txtExcusa = fix_line(current_problem.getString("EXCUSA"));
   PFont fuente = null;
   PImage imagen_excusa = null;
+  PImage imagen_btn_excusa = null;
+  PImage imagen_btn_excusa_2 = null;
   Button excusa_button = null;
   
   int ancho_img_excusa = 0;
@@ -87,6 +89,8 @@ void te_doy_excusa(){
   case KEY_ORO:{
                 fuente = font_oro;
                 imagen_excusa = loadImage ("images/Oro Ang.jpeg");
+                imagen_btn_excusa = loadImage ("images/Oro Ang NoBG.png");
+                imagen_btn_excusa_2 = loadImage ("images/Oro Sed NoBG.png");
                 excusa_button = (Button)cp5.getController("elijo_oro");
                 ancho_img_excusa = 0;
                 break;
@@ -94,6 +98,8 @@ void te_doy_excusa(){
   case KEY_FIAT:{
                 fuente = font_fiat;
                 imagen_excusa = loadImage ("images/FIAT Ang.jpeg");
+                imagen_btn_excusa = loadImage ("images/FIAT Ang NoBG.png");
+                imagen_btn_excusa_2 = loadImage ("images/FIAT Sed NoBG.png");
                 excusa_button = (Button)cp5.getController("elijo_fiat");
                 ancho_img_excusa = ancho;
                 break;
@@ -101,6 +107,8 @@ void te_doy_excusa(){
   case KEY_CRIPTO:{
                 fuente = font_cripto;
                 imagen_excusa = loadImage ("images/Crypto Ang.jpeg");
+                imagen_btn_excusa = loadImage ("images/Crypto Ang NoBG.png");
+                imagen_btn_excusa_2 = loadImage ("images/Crypto Sed NoBG.png");
                 excusa_button = (Button)cp5.getController("elijo_cripto");
                 ancho_img_excusa = ancho*2;
                 break;
@@ -111,9 +119,10 @@ void te_doy_excusa(){
   
 
   
-  imagen_excusa.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
+  imagen_btn_excusa.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
+  imagen_btn_excusa_2.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
      
-  PImage[] imgs_excusa_btn = {imagen_excusa,imagen_excusa,imagen_excusa};
+  PImage[] imgs_excusa_btn = {imagen_btn_excusa,imagen_btn_excusa_2,imagen_excusa};
   //Button excusa_button = (Button)cp5.getController("problema_button");
   
    excusa_button

@@ -26,9 +26,19 @@ PImage img_oro_inicio;
 PImage img_fiat_inicio;
 PImage img_cripto_inicio;
 
+PImage img_oro_sed;
+PImage img_fiat_sed;
+PImage img_cripto_sed;
+
+PImage img_oro;
+PImage img_fiat;
+PImage img_cripto;
+
 PImage img_oro_final;
 PImage img_fiat_final;
 PImage img_cripto_final;
+
+PImage img_fondo;
 
 
 String intro_mercancia;
@@ -92,6 +102,14 @@ void setup() {
    img_oro_inicio.resize(ancho, altura_img_inicio);
    img_fiat_inicio.resize(ancho, altura_img_inicio);
    img_cripto_inicio.resize(ancho, altura_img_inicio);
+   
+   img_oro_sed.resize(ancho, altura_img_inicio);
+   img_fiat_sed.resize(ancho, altura_img_inicio);
+   img_cripto_sed.resize(ancho, altura_img_inicio);
+   
+   img_oro.resize(ancho, altura_img_inicio);
+   img_fiat.resize(ancho, altura_img_inicio);
+   img_cripto.resize(ancho, altura_img_inicio);
     
     
   PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
@@ -148,7 +166,8 @@ void setup() {
                     
   textlabelIntro_cripto.draw(this); 
   
-  
+  img_fondo = loadImage ("images/Oro Ang.jpeg");
+  img_fondo.resize(width, height);
   
 }
 
@@ -163,6 +182,14 @@ void loadData(){
   img_oro_inicio = loadImage ( "images/oro_basic.png");
   img_fiat_inicio = loadImage ( "images/fiat_basic.png");
   img_cripto_inicio = loadImage ( "images/cripto_basic.png");
+  
+  img_oro_sed = loadImage ( "images/Oro Sed.jpeg");
+  img_fiat_sed = loadImage ( "images/FIAT Sed.jpeg");
+  img_cripto_sed = loadImage ( "images/Crypto Sed.jpeg");
+  
+  img_oro = loadImage ( "images/Oro.jpeg");
+  img_fiat = loadImage ( "images/FIAT.jpeg");
+  img_cripto = loadImage ( "images/Crypto.jpeg");
       
 }
 
@@ -188,7 +215,8 @@ String fix_line(String my_line){
 
 void draw(){
   //update(mouseX, mouseY);
-  background(255);
+  background(img_fondo);
+  //background(255);
   noStroke();
   fill(0);
 }

@@ -111,7 +111,7 @@ void te_doy_excusa(){
   
 
   
-  imagen_excusa.resize(ancho, altura_img_inicio);
+  imagen_excusa.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
      
   PImage[] imgs_excusa_btn = {imagen_excusa,imagen_excusa,imagen_excusa};
   //Button excusa_button = (Button)cp5.getController("problema_button");
@@ -127,7 +127,10 @@ void te_doy_excusa(){
  textlabel_problem.setText(txtExcusa)
                   .setPosition(ancho_img_excusa,0)
                   .show();    
-     
+  
+  imagen_excusa.resize(width, height);
+  img_fondo = imagen_excusa;
+  //img_fondo.resize(width, height);
      
  /// vamos a seducirlo!
  te_doy_seducciones(current_problem,current_keyMoneda);
@@ -158,10 +161,9 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_oro_inicio,img_oro_inicio,img_oro_inicio};
+                   PImage[] imgs = {img_oro_inicio,img_oro_sed,img_oro};
                    Button seductor_btn = (Button)cp5.getController("elijo_oro");
                    seductor_btn.setImages(imgs).show();
-                   //cp5.getController("elijo_oro").show();
                    break;
                  }
           case KEY_FIAT:{
@@ -169,11 +171,9 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_fiat_inicio,img_fiat_inicio,img_fiat_inicio};
+                   PImage[] imgs = {img_fiat_inicio,img_fiat_sed,img_fiat};
                    Button seductor_btn = (Button)cp5.getController("elijo_fiat");
                    seductor_btn.setImages(imgs).show();
-                   
-                   //cp5.getController("elijo_fiat").show();
                    break;
                  }
           case KEY_CRIPTO:{
@@ -181,11 +181,9 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_cripto_inicio,img_cripto_inicio,img_cripto_inicio};
+                   PImage[] imgs = {img_cripto_inicio,img_cripto_sed,img_cripto};
                    Button seductor_btn = (Button)cp5.getController("elijo_cripto");
                    seductor_btn.setImages(imgs).show();
-                   
-                   //cp5.getController("elijo_cripto").show();
                    break;
                  }            
      default:{break;}

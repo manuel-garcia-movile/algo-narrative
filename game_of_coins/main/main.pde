@@ -5,7 +5,7 @@ Lord of the money es un juego experimental donde
 @Especulativo (Filosofo)
 @Exon Stigmata (Artista grafico)
 
-Exploran la narrativa de tres formas de dinero: 
+exploran la narrativa de tres formas de dinero: 
 El dinero mercancia (Metales preciosos)
 El dinero fiat (Dinero creado por el gobierno basado en deuda)
 El cripto dinero
@@ -47,7 +47,9 @@ String intro_cripto;
 Textlabel textlabelIntro_oro;
 Textlabel textlabelIntro_fiat;
 Textlabel textlabelIntro_cripto;
+Textlabel textlabel_problem;
 
+JSONObject current_problem = null;
 
 
 void setup() {

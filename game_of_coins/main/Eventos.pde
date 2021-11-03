@@ -121,6 +121,9 @@ void face_problem(JSONObject problema, String keyMoneda){
    String tipo_moneda_seduccion = seduccion.getString("tipo");
    String texto_seduccion = fix_line(seduccion.getString("texto")); 
    
+   
+   /// lo pondrmoes en otros transision
+   /*
    switch(tipo_moneda_seduccion){
          case KEY_ORO:{
                    textlabelIntro_oro
@@ -145,20 +148,28 @@ void face_problem(JSONObject problema, String keyMoneda){
                  }            
      default:{break;}
    }
-  
+  */
    
  }
   
+    /// lo pondremso en otros transision
     
+    /*
     textlabelExcusa = cp5.addTextlabel("label_excusa")
                          .setPosition(200,900)
                          .setColorValue(0x00000000)
                          .setText(txtExcusa)
                          .hide();
     textlabelExcusa.draw(this);
+    
+    */
+    
+    te_doy_problema(problema,keyMoneda);
 
+/*
      switch(keyMoneda){
          case KEY_ORO:{
+                      
                    textlabelIntro_oro
                    .setText(txtProblema)
                    .show();
@@ -167,6 +178,8 @@ void face_problem(JSONObject problema, String keyMoneda){
                    textlabelExcusa                   
                    .setFont(font_oro)
                    .show();
+                   
+                   
                    
                    break;
                  }
@@ -196,7 +209,7 @@ void face_problem(JSONObject problema, String keyMoneda){
                  }            
      default:{break;}
    }
-
+*/
 
 
 }
@@ -241,12 +254,13 @@ imagen_final.resize(width, height);
      
   PImage[] imgs_fiat_btn = {imagen_final,imagen_final,imagen_final};
   Button end_button = (Button)cp5.getController("elijo_fiat"); 
+  //tome la del fiat porque esta al centro y como es el final no habra nada mas que hacer 
   
      end_button
      .setPosition(0,0) //140,300
      .setImages(imgs_fiat_btn)
      .updateSize()
-     .lock()
+     .lock() // un boton que no deje hacer nada
      .show()
      ;   
 

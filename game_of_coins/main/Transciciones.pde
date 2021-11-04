@@ -122,7 +122,7 @@ void te_doy_excusa(){
   imagen_btn_excusa.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
   imagen_btn_excusa_2.resize(ancho, altura_img_inicio); //ancho, altura_img_inicio
      
-  PImage[] imgs_excusa_btn = {imagen_btn_excusa,imagen_btn_excusa_2,imagen_excusa};
+  PImage[] imgs_excusa_btn = {imagen_btn_excusa,imagen_btn_excusa_2,imagen_btn_excusa};
   //Button excusa_button = (Button)cp5.getController("problema_button");
   
    excusa_button
@@ -170,7 +170,7 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_oro_inicio,img_oro_sed,img_oro};
+                   PImage[] imgs = {img_oro_nobg,img_oro_sed_nobg,img_oro_nobg};
                    Button seductor_btn = (Button)cp5.getController("elijo_oro");
                    seductor_btn.setImages(imgs).show();
                    break;
@@ -180,7 +180,7 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_fiat_inicio,img_fiat_sed,img_fiat};
+                   PImage[] imgs = {img_fiat_nobg,img_fiat_sed_nobg,img_fiat_nobg};
                    Button seductor_btn = (Button)cp5.getController("elijo_fiat");
                    seductor_btn.setImages(imgs).show();
                    break;
@@ -190,7 +190,7 @@ println("Ahora veamos como es seducido el usuario de "+keyMoneda);
                    .setText(texto_seduccion)
                    .show();
                    
-                   PImage[] imgs = {img_cripto_inicio,img_cripto_sed,img_cripto};
+                   PImage[] imgs = {img_cripto_nobg,img_cripto_sed_nobg,img_cripto_nobg};
                    Button seductor_btn = (Button)cp5.getController("elijo_cripto");
                    seductor_btn.setImages(imgs).show();
                    break;

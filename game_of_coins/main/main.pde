@@ -30,9 +30,17 @@ PImage img_oro_sed;
 PImage img_fiat_sed;
 PImage img_cripto_sed;
 
+PImage img_oro_sed_nobg;
+PImage img_fiat_sed_nobg;
+PImage img_cripto_sed_nobg;
+
 PImage img_oro;
 PImage img_fiat;
 PImage img_cripto;
+
+PImage img_oro_nobg;
+PImage img_fiat_nobg;
+PImage img_cripto_nobg;
 
 PImage img_oro_final;
 PImage img_fiat_final;
@@ -110,9 +118,17 @@ void setup() {
    img_oro.resize(ancho, altura_img_inicio);
    img_fiat.resize(ancho, altura_img_inicio);
    img_cripto.resize(ancho, altura_img_inicio);
+   
+   img_oro_sed_nobg.resize(ancho, altura_img_inicio);
+   img_fiat_sed_nobg.resize(ancho, altura_img_inicio);
+   img_cripto_sed_nobg.resize(ancho, altura_img_inicio);
+   
+   img_oro_nobg.resize(ancho, altura_img_inicio);
+   img_fiat_nobg.resize(ancho, altura_img_inicio);
+   img_cripto_nobg.resize(ancho, altura_img_inicio);   
     
     
-  PImage[] imgs = {img_oro_inicio,img_oro_sed,img_oro_inicio};
+  PImage[] imgs = {img_oro_sed,img_oro_inicio,img_oro_inicio};
   cp5.addButton("elijo_oro")
      .setValue(1)
      .setPosition(0,0) //140,300
@@ -122,7 +138,7 @@ void setup() {
      ;
      
      
-  PImage[] imgs_fiat_btn = {img_fiat_inicio,img_fiat_sed,img_fiat_inicio};
+  PImage[] imgs_fiat_btn = {img_fiat_sed,img_fiat_inicio,img_fiat_inicio};
   cp5.addButton("elijo_fiat")
      .setValue(2)
      .setPosition(ancho,0) //140,300
@@ -131,7 +147,7 @@ void setup() {
      //.hide()
      ;   
      
-  PImage[] imgs_cripto_btn = {img_cripto_inicio,img_cripto_sed,img_cripto_inicio};
+  PImage[] imgs_cripto_btn = {img_cripto_sed,img_cripto_inicio,img_cripto_inicio};
   cp5.addButton("elijo_cripto")
      .setValue(3)
      .setPosition(ancho*2,0) //140,300
@@ -189,6 +205,14 @@ void loadData(){
   img_oro_sed = loadImage ( "images/Oro Sed.jpeg");
   img_fiat_sed = loadImage ( "images/FIAT Sed.jpeg");
   img_cripto_sed = loadImage ( "images/Crypto Sed.jpeg");
+  
+  img_oro_sed_nobg = loadImage ( "images/Oro Sed NoBG.png");
+  img_fiat_sed_nobg = loadImage ( "images/FIAT Sed NoBG.png");
+  img_cripto_sed_nobg = loadImage ( "images/Crypto Sed NoBG.png");
+  
+  img_oro_nobg = loadImage ( "images/Oro NoBG.png");
+  img_fiat_nobg = loadImage ( "images/FIAT NoBG.png");
+  img_cripto_nobg = loadImage ( "images/Crypto NoBG.png");
   
   img_oro = loadImage ( "images/Oro.jpeg");
   img_fiat = loadImage ( "images/FIAT.jpeg");

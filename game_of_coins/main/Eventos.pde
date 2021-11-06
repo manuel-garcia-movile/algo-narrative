@@ -108,109 +108,9 @@ void escenario(String keyMoneda){
 
 void face_problem(JSONObject problema, String keyMoneda){
 
-  //JSONObject problema = problemas.getJSONObject(index);
-  problema.setString("DONE","TRUE");
-  String txtProblema = fix_line(problema.getString("problema"));
-  String txtExcusa = fix_line(problema.getString("EXCUSA"));
-  
-  JSONArray seducciones = problema.getJSONArray("SEDUCCIONES");
-  
- //por logica maximo deberia hacer 2 seducciones: 
- for (int i = 0; i< seducciones.size(); i++) {
-   JSONObject seduccion = seducciones.getJSONObject(i);
-   String tipo_moneda_seduccion = seduccion.getString("tipo");
-   String texto_seduccion = fix_line(seduccion.getString("texto")); 
-   
-   
-   /// lo pondrmoes en otros transision
-   /*
-   switch(tipo_moneda_seduccion){
-         case KEY_ORO:{
-                   textlabelIntro_oro
-                   .setText(texto_seduccion)
-                   .show();
-                   cp5.getController("elijo_oro").show();
-                   break;
-                 }
-          case KEY_FIAT:{
-                   textlabelIntro_fiat
-                   .setText(texto_seduccion)
-                   .show();
-                   cp5.getController("elijo_fiat").show();
-                   break;
-                 }
-          case KEY_CRIPTO:{
-                   textlabelIntro_cripto
-                   .setText(texto_seduccion)
-                   .show();
-                   cp5.getController("elijo_cripto").show();
-                   break;
-                 }            
-     default:{break;}
-   }
-  */
-   
- }
-  
-    /// lo pondremso en otros transision
+   problema.setString("DONE","TRUE");
     
-    /*
-    textlabelExcusa = cp5.addTextlabel("label_excusa")
-                         .setPosition(200,900)
-                         .setColorValue(0x00000000)
-                         .setText(txtExcusa)
-                         .hide();
-    textlabelExcusa.draw(this);
-    
-    */
-    
-    te_doy_problema(problema,keyMoneda);
-
-/*
-     switch(keyMoneda){
-         case KEY_ORO:{
-                      
-                   textlabelIntro_oro
-                   .setText(txtProblema)
-                   .show();
-                   cp5.getController("elijo_oro").show();
-                   
-                   textlabelExcusa                   
-                   .setFont(font_oro)
-                   .show();
-                   
-                   
-                   
-                   break;
-                 }
-          case KEY_FIAT:{
-                   textlabelIntro_fiat
-                   .setText(txtProblema)
-                   .show();
-                   cp5.getController("elijo_fiat").show();
-                   
-                   textlabelExcusa                   
-                   .setFont(font_fiat)
-                   .show();
-
-                   break;
-                 }
-          case KEY_CRIPTO:{
-                   textlabelIntro_cripto
-                   .setText(txtProblema)
-                   .show();
-                   cp5.getController("elijo_cripto").show();
-                   
-                   textlabelExcusa                   
-                   .setFont(font_cripto)
-                   .show();
-
-                   break;
-                 }            
-     default:{break;}
-   }
-*/
-
+   te_doy_problema(problema,keyMoneda);
 
 }
 
@@ -264,11 +164,17 @@ imagen_final.resize(width, height);
      .show()
      ;   
 
+//clean all text:
+textlabelIntro_oro.setText("").show();
+textlabelIntro_fiat.setText("").show();
+textlabelIntro_cripto.setText("").show();
+textlabel_problem.setText("").show();
 
 
-textlabelIntro_oro
+textlabel_problem
                    .setText(textoFinal)
                    .setFont(fuente)
+                   .setPosition(30,400)
                    .setColorValue(0xffffffff)
                    .show();
 

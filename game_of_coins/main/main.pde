@@ -194,9 +194,9 @@ void loadData(){
   json_db = loadJSONObject("model/DB.json");
   
   // set presentation parameters
-  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",33);
-  font_fiat = createFont("fonts/Cinzel/Cinzel-VariableFont_wght.ttf",17);
-  font_cripto = createFont("fonts/Turret_Road/TurretRoad-Regular.ttf",17);
+  font_oro = createFont("fonts/Italianno/Italianno-Regular.ttf",35);
+  font_fiat = createFont("fonts/Cinzel/static/Cinzel-Medium.ttf",17);
+  font_cripto = createFont("fonts/Turret_Road/TurretRoad-Medium.ttf",17);
   
   img_oro_inicio = loadImage ( "images/oro_basic.png");
   img_fiat_inicio = loadImage ( "images/fiat_basic.png");
@@ -235,8 +235,6 @@ String fix_line(String my_line){
                     .replace("!!","!");  
  return my_line; 
 }
-
-
 
 
 
